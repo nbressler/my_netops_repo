@@ -20,3 +20,9 @@
         parents: ip access-list extended test
         match: exact
         before: no ip access-list extended test
+      notify: "Save your work!"
+  handlers:
+    - name: Save your work!
+      ios_command:
+        provider: "{{ credentials }}"
+        commands: "wr"
