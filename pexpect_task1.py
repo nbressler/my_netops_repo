@@ -33,5 +33,19 @@ connection.expect('ignw-csr#')
 interface_output = connection.before
 print(interface_output)
 
-split_output = interface_output.decode().split('\r\n')
-print(split_output)
+#split_output = interface_output.decode().split('\r\n')
+#print(split_output)
+
+#for config_item in split_output:
+#	if config_item.startswith('interface'):
+#		print(config_item)
+#	if config_item.startswith(' description'):
+#		print((config_item).lstrip())
+#	if config_item.startswith(' ip address'):
+#		print((config_item).lstrip())
+
+interface_name = re.findall(r'interface.([A-Z,a-z]*?Ethernet[^\r])', (interface_output).decode())
+interface_description = re.findall(r'description[^\r]*', (interface_output).decode())
+
+print(interface_name[0])
+print(interface_description)
