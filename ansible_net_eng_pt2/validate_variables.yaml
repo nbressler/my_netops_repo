@@ -1,0 +1,11 @@
+---
+- name: IOS Conditional Fact Checker
+  gather_facts: no
+  hosts: csr
+  tasks:
+    - name: Print NTP Variable
+      debug:
+        msg: "{{ ntp1 }}"
+    - name: Print Timezone Variable
+      debug:
+        msg: "{{ timezone }}"
