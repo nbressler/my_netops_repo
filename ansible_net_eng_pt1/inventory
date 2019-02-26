@@ -1,0 +1,17 @@
+[all:vars]
+ansible_connection=local
+username=ignw
+password=ignw
+subnet_mask=255.255.255.0
+
+[csr]
+ignw-csr ansible_host=10.0.0.5
+
+[csr:vars]
+mgmt_descr="Management - Do not Modify!"
+
+[asa]
+ignw-asa ansible_host=10.0.0.8
+
+[asa:vars]
+enable_password=ignw
