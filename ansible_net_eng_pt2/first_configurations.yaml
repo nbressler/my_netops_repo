@@ -1,0 +1,15 @@
+---
+- name: Woohoo! Configuration Time!
+  gather_facts: no
+  hosts: csr
+  vars:
+    credentials:
+        host: "{{ ansible_host }}"
+        username: "{{ username }}"
+        password: "{{ password }}"
+  tasks:
+    - name: Starting Small
+      ios_config:
+        provider: "{{ credentials }}"
+        lines: description Yay Ansible!
+        parents: interface GigabitEthernet2
